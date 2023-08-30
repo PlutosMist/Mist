@@ -1,0 +1,148 @@
+/* styles.css */
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: black;
+}
+
+#blur {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+}
+
+#circle {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background-image: linear-gradient(to right, #ffffff, #414141);
+  animation: rotate 15s linear infinite;
+  transition: transform 0.3s ease;
+  filter: blur(150px);
+}
+
+.button-container {
+  position: absolute;
+  top: 70px;
+  left: 70.5%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 400px;
+  background-color: #000000;
+  border-radius: 50%;
+  z-index: 3;
+  transition: background-color 1.7s; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.button-container:hover {
+  background-color: #ffffff; 
+}
+
+.button-text {
+  font-size: 85px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  color: rgb(0, 0, 0);
+}
+
+.centered-text {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 120px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  color: white;
+  opacity: 0;
+  animation: fadeInAndScale 2s forwards, pulse 2s infinite alternate;
+  z-index: 3;
+}
+
+.specific-centered-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  color: white;
+  opacity: 1; 
+}
+
+#image {
+  position: absolute;
+  left: 150px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 600px;
+  height: auto;
+}
+
+#rain-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.raindrop {
+  position: absolute;
+  width: 20px; 
+  height: auto;
+  animation: rainAnimation linear infinite;
+}
+
+.no-animation {
+  animation: none;
+  opacity: 1;
+  transform: none; 
+}
+
+
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  50% {
+    scale: 1 1.5;
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeInAndScale {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  to {
+    transform: scale(1.1);
+  }
+}
+
+
+
+@keyframes rainAnimation {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(100vh);
+  }
+}
